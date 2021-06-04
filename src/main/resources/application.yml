@@ -1,5 +1,29 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: accounts
   profiles:
     active: production
+  datasource:
+    url: ${accounts.datasource.url}
+    username: ${accounts.datasource.username}
+    password: ${accounts.datasource.password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: ${accounts.datasource.ddl-mode}
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
+  info:
+    app:
+      name: "Accounts"
+      version: "0.0.1"
+      profile: ${spring.profiles.active}
+    serverInfo:
+      port: ${server.port}
+application:
+  allow-get-accounts: ${accounts.allow-get-accounts}
