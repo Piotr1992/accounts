@@ -3,13 +3,14 @@ spring:
     config:
       uri: http://localhost:8888
       profile: ${spring.profiles.active}
+
   # ACTUATOR INFO
-  info:
-    app:
-      name: "Accounts"
-      version: "0.0.1"
-      profile: ${spring.profiles.active}
-    serverInfo:
-      port: ${server.port}
-application:
-  allow-get-accounts: ${accounts.allow-get-accounts}
+#  info:
+#    app:
+#      name: "Accounts"
+#      version: "0.0.1"
+#      profile: ${spring.profiles.active}
+#    serverInfo:
+#      port: ${server.port}
+#application:
+#  allow-get-accounts: ${accounts.allow-get-accounts}
