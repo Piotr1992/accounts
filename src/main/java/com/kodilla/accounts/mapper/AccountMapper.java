@@ -1,15 +1,15 @@
 package com.kodilla.accounts.mapper;
 
-/*import com.kodilla.accounts.dto.Account;
+import com.kodilla.accounts.dto.Account;
 import com.kodilla.accounts.dto.AccountDto;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service*/
+@Service
 public class AccountMapper {
 
-/*    public AccountDto mapToAccountDto(final Account account) {
+    public AccountDto mapToAccountDto(final Account account) {
         return new AccountDto(
                 account.getId(),
                 account.getNrb(),
@@ -26,7 +26,7 @@ public class AccountMapper {
 
     public Account mapToAccount(AccountDto account) {
         return new Account(account.getId(), account.getNrb(), account.getCurrency(), account.getAvailableFunds());
-    }                */
+    }
 
 }
 

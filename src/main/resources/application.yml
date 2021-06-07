@@ -1,8 +1,32 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: accounts
   profiles:
     active: production
+  datasource:
+    url: ${accounts.datasource.url}
+    username: ${accounts.datasource.username}
+    password: ${accounts.datasource.password}
+    driver-class-name: com.mysql.jdbc.Driver    #org.postgresql.Driver
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  app:
+    name: "Accounts"
+    version: "0.0.1"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${server.port}
+application:
+  allow-get-accounts: ${accounts.allow-get-accounts}
+
+
+
 
 # spring:
 #  main:

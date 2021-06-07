@@ -1,25 +1,25 @@
 package com.kodilla.accounts.dto;
 
-/*import lombok.AllArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "account")           */
+@Entity
+@Table(name = "account")
 public class Account {
 
-/*    @Id
-    @GeneratedValue
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "nrb")
     private String nrb;
@@ -28,6 +28,6 @@ public class Account {
     private String currency;
 
     @Column(name = "available_funds")
-    private double availableFunds;              */
+    private double availableFunds;
 
 }
