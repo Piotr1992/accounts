@@ -13,21 +13,18 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "account")
-public class Account {
+@Table(name = "customer")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long idDto;
 
-    @Column(name = "nrb")
-    private String nrb;
+    @Column(name = "firstName")
+    private String firstName;
 
-    @Column(name = "currency")
-    private String currency;
-
-    @Column(name = "available_funds")
-    private double availableFunds;
+    @Column(name = "lastName")
+    private String lastName;
 
 }

@@ -1,7 +1,7 @@
 package com.kodilla.accounts.controller;
 
-import com.kodilla.accounts.dto.AccountDto;
-import com.kodilla.accounts.service.AccountService;
+import com.kodilla.accounts.dto.CustomerDto;
+import com.kodilla.accounts.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,26 +17,26 @@ import java.util.List;
 @Slf4j
 @RefreshScope
 @RestController
-@RequestMapping("/v1/accounts")
+@RequestMapping("/v1/customers")
 @RequiredArgsConstructor
-public class AccountsController {
+public class CustomerController {
 
-//    @Value("${application.allow-get-accounts}")
+    @Value("${application.allow-get-customers}")
     private boolean allowGetAccounts;
 
-    private final AccountService accountService;
+    private final CustomerService accountService;
 
     @GetMapping
-    public GetAccountsResponse getAccounts(@RequestParam("customerId") Long customerId) {
+    public GetCustomerResponse getAccounts(@RequestParam("customerId") Long customerId) {
 
         if(!allowGetAccounts) {
             log.info("Getting accounts is disabled");
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Getting accounts is disabled");
         }
 
-        List<AccountDto> accounts = accountService.getAccountDto(customerId);
+        List<CustomerDto> accounts = accountService.getAccountDto(customerId);
 
-        return GetAccountsResponse.of(accounts);
+        return GetCustomerResponse.of(accounts);
     }
 
 }

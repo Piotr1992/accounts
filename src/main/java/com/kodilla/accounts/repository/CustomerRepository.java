@@ -1,7 +1,7 @@
 package com.kodilla.accounts.repository;
 
-import com.kodilla.accounts.dto.Account;
-import com.kodilla.accounts.dto.AccountDto;
+import com.kodilla.accounts.dto.Customer;
+import com.kodilla.accounts.dto.CustomerDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -9,18 +9,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface AccountRepository extends JpaRepository<Account, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Override
-    List<Account> findAll();
+    List<Customer> findAll();
 
     @Override
-    Account save(Account task);
+    Customer save(Customer task);
 
     @Override
-    Optional<Account> findById(Long id);
+    Optional<Customer> findById(Long id);
 
-    List<AccountDto> findByIdDto(Long id);
+    List<CustomerDto> findByIdDto(Long id);
 
     void deleteById(Long id);
 

@@ -2,33 +2,36 @@ package com.kodilla.accounts.service;
 
 import com.kodilla.accounts.dto.Account;
 import com.kodilla.accounts.dto.AccountDto;
+import com.kodilla.accounts.dto.Customer;
+import com.kodilla.accounts.dto.CustomerDto;
 import com.kodilla.accounts.repository.AccountRepository;
+import com.kodilla.accounts.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountService {
+public class CustomerService {
 
     @Autowired
-    private AccountRepository repository;
+    private CustomerRepository repository;
 
-    public List<Account> getAllAccounts() {
+    public List<Customer> getAllCustomers() {
         return repository.findAll();
     }
 
-    public Optional<Account> getAccount(final Long id) {
+    public Optional<Customer> getAccount(final Long id) {
         //return repository.findById(id);
         return repository.findById(id);
     }
 
-    public List<AccountDto> getAccountDto(final Long id) {
+    public List<CustomerDto> getAccountDto(final Long id) {
         //return repository.findById(id);
         return repository.findByIdDto(id);
     }
 
-    public void save(Account account) {
+    public void save(Customer account) {
         repository.save(account);
     }
 

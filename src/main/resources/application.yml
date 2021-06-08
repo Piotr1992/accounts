@@ -2,14 +2,17 @@ spring:
   main:
     allow-bean-definition-overriding: true
   application:
-    name: accounts
+    name: customers
   profiles:
     active: production
   datasource:
-    url: ${accounts.datasource.url}
-    username: ${accounts.datasource.username}
-    password: ${accounts.datasource.password}
-    driver-class-name: com.mysql.jdbc.Driver    #org.postgresql.Driver
+    url: ${customers.datasource.url}
+    username: ${customers.datasource.username}
+    password: ${customers.datasource.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver    #org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: ${customers.datasource.ddl-mode}
 management:
   endpoints:
     web:
@@ -17,18 +20,19 @@ management:
         include: '*'
 info:
   app:
-    name: "Accounts"
+    name: "Customers"
     version: "0.0.1"
     profile: ${spring.profiles.active}
   serverInfo:
     port: ${server.port}
 application:
-  allow-get-accounts: ${accounts.allow-get-accounts}
+  allow-get-customers: ${customers.allow-get-customers}
 
 
 
 
-# spring:
+
+#spring:
 #  main:
 #    allow-bean-definition-overriding: true
 #  application:
@@ -36,23 +40,24 @@ application:
 #  profiles:
 #    active: production
 #  datasource:
-#    url: jdbc:mysql://localhost:3306/userauth?serverTimezone=Europe/Warsaw&useSSL=False&allowPublicKeyRetrieval=true
-#    username: root
-#    password: PLSzW-2020
+#    url: ${accounts.datasource.url}
+#    username: ${accounts.datasource.username}
+#    password: ${accounts.datasource.password}
+#    driver-class-name: com.mysql.cj.jdbc.Driver    #org.postgresql.Driver
 #  jpa:
 #    hibernate:
-#      ddl-auto: update
-#  management:
-#    endpoints:
-#      web:
-#        exposure:
-#          include: '*'
-#  info:
-#    app:
-#      name: "Accounts"
-#      version: "0.0.1"
-#      profile: production
-#    serverInfo:
-#      port: 7777
+#      ddl-auto: ${accounts.datasource.ddl-mode}
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#info:
+#  app:
+#    name: "Accounts"
+#    version: "0.0.1"
+#    profile: ${spring.profiles.active}
+#  serverInfo:
+#    port: ${server.port}
 #application:
-#  allow-get-accounts: true
+#  allow-get-accounts: ${accounts.allow-get-accounts}
