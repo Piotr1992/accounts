@@ -21,18 +21,18 @@ public class CustomerService {
         return repository.findAll();
     }
 
-    public Optional<Customer> getAccount(final Long id) {
+    public Optional<Customer> getCustomer(final Long id) {
         //return repository.findById(id);
         return repository.findById(id);
     }
 
-    public List<CustomerDto> getAccountDto(final Long id) {
+    public List<CustomerDto> getCustomerDto(final Long id) {
         //return repository.findById(id);
         return repository.findByIdDto(id);
     }
 
-    public void save(Customer account) {
-        repository.save(account);
+    public void save(Customer customer) {
+        repository.save(customer);
     }
 
 }

@@ -2,17 +2,17 @@ spring:
   main:
     allow-bean-definition-overriding: true
   application:
-    name: customers
+    name: accounts
   profiles:
     active: production
   datasource:
-    url: ${customers.datasource.url}
-    username: ${customers.datasource.username}
-    password: ${customers.datasource.password}
-    driver-class-name: com.mysql.cj.jdbc.Driver    #org.postgresql.Driver
+    url: ${accounts.datasource.url}
+    username: ${accounts.datasource.username}
+    password: ${accounts.datasource.password}
+    driver-class-name: org.postgresql.Driver    #com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: ${customers.datasource.ddl-mode}
+      ddl-auto: ${accounts.datasource.ddl-mode}
 management:
   endpoints:
     web:
@@ -26,7 +26,7 @@ info:
   serverInfo:
     port: ${server.port}
 application:
-  allow-get-customers: ${customers.allow-get-customers}
+  allow-get-customers: ${accounts.allow-get-customers}
 
 
 
