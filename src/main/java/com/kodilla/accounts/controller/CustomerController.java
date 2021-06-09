@@ -27,7 +27,7 @@ public class CustomerController {
 
     @Value("${application.allow-get-customers}")
     private boolean allowGetCustomers;
-    private CustomerService customerService;
+    private final CustomerService customerService;
     private CustomerMapper customerMapper;
 
     @Autowired
@@ -36,8 +36,8 @@ public class CustomerController {
         this.customerMapper = customerMapper;
     }
 
-    @RequestMapping(value = "/{customerId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public GetCustomerResponse getCustomers(@PathVariable("customerId") Long customerId) {
+    @GetMapping( "/{customerId}")
+    public GetCustomerResponse getCustomers(@RequestParam(value = "customerId") Long customerId) {
 
         if(!allowGetCustomers) {
             log.info("Getting accounts is disabled");
@@ -49,7 +49,7 @@ public class CustomerController {
         return GetCustomerResponse.of(customers);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public void addCustomer(@RequestBody CustomerDto customer) {
         customerService.save(customerMapper.mapToCustomer(customer));
     }

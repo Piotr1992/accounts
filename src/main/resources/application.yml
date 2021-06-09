@@ -9,7 +9,7 @@ spring:
     url: ${accounts.datasource.url}
     username: ${accounts.datasource.username}
     password: ${accounts.datasource.password}
-    driver-class-name: org.postgresql.Driver    #com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver     # org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: ${accounts.datasource.ddl-mode}
