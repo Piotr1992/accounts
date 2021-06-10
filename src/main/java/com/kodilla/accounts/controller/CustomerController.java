@@ -16,12 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
-@Data
 @Slf4j
 @RefreshScope
 @RestController
-@RequestMapping("/v1/customers")
-//@RequiredArgsConstructor
+@RequestMapping(value = "/v1/customers")
+@RequiredArgsConstructor
 //@NoArgsConstructor
 public class CustomerController {
 
@@ -30,26 +29,24 @@ public class CustomerController {
     private final CustomerService customerService;
     private CustomerMapper customerMapper;
 
-    @Autowired
+/*    @Autowired
     public CustomerController(CustomerService customerService, CustomerMapper customerMapper) {
         this.customerService = customerService;
         this.customerMapper = customerMapper;
-    }
+    }               */
 
-    @GetMapping( "/{customerId}")
-    public GetCustomerResponse getCustomers(@RequestParam(value = "customerId") Long customerId) {
-
+    @RequestMapping(method = RequestMethod.GET, value = "/{customerId}")
+    public GetCustomerResponse getCustomers(@PathVariable("customerId") Long customerId) {
         if(!allowGetCustomers) {
             log.info("Getting accounts is disabled");
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Getting customers is disabled");
         }
 
         List<CustomerDto> customers = customerService.getCustomerDto(customerId);
-
         return GetCustomerResponse.of(customers);
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addCustomer(@RequestBody CustomerDto customer) {
         customerService.save(customerMapper.mapToCustomer(customer));
     }

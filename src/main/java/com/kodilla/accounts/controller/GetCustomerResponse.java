@@ -16,5 +16,6 @@ import java.util.Optional;
 public class GetCustomerResponse {
 
     private List<CustomerDto> customers;
+
 }
 

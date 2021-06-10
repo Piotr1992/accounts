@@ -19,7 +19,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long idDto;
+    private Long idDto;
 
     @Column(name = "first_name")
     private String firstName;
