@@ -3,47 +3,37 @@ package com.kodilla.accounts.controller;
 import com.kodilla.accounts.dto.CustomerDto;
 import com.kodilla.accounts.mapper.CustomerMapper;
 import com.kodilla.accounts.service.CustomerService;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import java.util.List;
 
 @Slf4j
 @RefreshScope
 @RestController
 @RequestMapping(value = "/v1/customers")
 @RequiredArgsConstructor
-//@NoArgsConstructor
 public class CustomerController {
 
     @Value("${application.allow-get-customers}")
     private boolean allowGetCustomers;
     private final CustomerService customerService;
-    private CustomerMapper customerMapper;
+    private final CustomerMapper customerMapper;
 
-/*    @Autowired
-    public CustomerController(CustomerService customerService, CustomerMapper customerMapper) {
-        this.customerService = customerService;
-        this.customerMapper = customerMapper;
-    }               */
-
-    @RequestMapping(method = RequestMethod.GET, value = "/{customerId}")
+    @GetMapping(value = "/{customerId}")
     public GetCustomerResponse getCustomers(@PathVariable("customerId") Long customerId) {
         if(!allowGetCustomers) {
             log.info("Getting accounts is disabled");
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Getting customers is disabled");
         }
 
-        List<CustomerDto> customers = customerService.getCustomerDto(customerId);
-        return GetCustomerResponse.of(customers);
+        CustomerDto customer = customerMapper.mapToCustomerDto(customerService.getCustomer(customerId).orElse(null));
+
+        return GetCustomerResponse.of(customer);
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)

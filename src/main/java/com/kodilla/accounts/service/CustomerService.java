@@ -22,13 +22,7 @@ public class CustomerService {
     }
 
     public Optional<Customer> getCustomer(final Long id) {
-        //return repository.findById(id);
         return repository.findById(id);
-    }
-
-    public List<CustomerDto> getCustomerDto(final Long id) {
-        //return repository.findById(id);
-        return repository.findByIdDto(id);
     }
 
     public void save(Customer customer) {

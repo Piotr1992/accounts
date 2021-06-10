@@ -22,8 +22,6 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
     @Override
     Optional<Customer> findById(Long id);
 
-    List<CustomerDto> findByIdDto(Long id);
-
     void deleteById(Long id);
 
 }

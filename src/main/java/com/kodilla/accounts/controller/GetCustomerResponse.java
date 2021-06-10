@@ -15,7 +15,7 @@ import java.util.Optional;
 @NoArgsConstructor
 public class GetCustomerResponse {
 
-    private List<CustomerDto> customers;
+    private CustomerDto customer;
 
 }
 
