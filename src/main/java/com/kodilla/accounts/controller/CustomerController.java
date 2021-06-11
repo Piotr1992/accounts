@@ -17,9 +17,10 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @RequestMapping(value = "/v1/customers")
 @RequiredArgsConstructor
+
 public class CustomerController {
 
-    @Value("${application.allow-get-customers}")
+    @Value("${application.allow-get-customer}")
     private boolean allowGetCustomers;
     private final CustomerService customerService;
     private final CustomerMapper customerMapper;

@@ -4,7 +4,6 @@ import com.kodilla.accounts.dto.AccountDto;
 import com.kodilla.accounts.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 
 @Slf4j
@@ -21,7 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountsController {
 
-//    @Value("${application.allow-get-accounts}")
+    @Value("${application.allow-get-accounts}")
     private boolean allowGetAccounts;
 
     private final AccountService accountService;

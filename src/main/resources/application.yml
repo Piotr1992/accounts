@@ -6,13 +6,13 @@ spring:
   profiles:
     active: production
   datasource:
-    url: ${accounts.datasource.url}
-    username: ${accounts.datasource.username}
-    password: ${accounts.datasource.password}
+    url: ${customer.datasource.url} #${accounts.datasource.url}
+    username: ${customer.datasource.username} #${accounts.datasource.username}
+    password: ${customer.datasource.password} #${accounts.datasource.password}
     driver-class-name: com.mysql.cj.jdbc.Driver     # org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: ${accounts.datasource.ddl-mode}
+      ddl-auto: ${customer.datasource.ddl-mode} #${accounts.datasource.ddl-mode}
 management:
   endpoints:
     web:
@@ -20,44 +20,13 @@ management:
         include: '*'
 info:
   app:
-    name: "Customers"
+    name: "Customers" #"Accounts"
     version: "0.0.1"
     profile: ${spring.profiles.active}
-  serverInfo:
+    serverInfo:
     port: ${server.port}
+eureka:
+  client: ${eureka-client}
 application:
-  allow-get-customers: ${accounts.allow-get-customers}
-
-
-
-
-
-#spring:
-#  main:
-#    allow-bean-definition-overriding: true
-#  application:
-#    name: accounts
-#  profiles:
-#    active: production
-#  datasource:
-#    url: ${accounts.datasource.url}
-#    username: ${accounts.datasource.username}
-#    password: ${accounts.datasource.password}
-#    driver-class-name: com.mysql.cj.jdbc.Driver    #org.postgresql.Driver
-#  jpa:
-#    hibernate:
-#      ddl-auto: ${accounts.datasource.ddl-mode}
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: '*'
-#info:
-#  app:
-#    name: "Accounts"
-#    version: "0.0.1"
-#    profile: ${spring.profiles.active}
-#  serverInfo:
-#    port: ${server.port}
-#application:
+  allow-get-customer: ${customer.allow-get-customer}
 #  allow-get-accounts: ${accounts.allow-get-accounts}

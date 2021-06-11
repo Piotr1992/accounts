@@ -19,7 +19,6 @@ public class AccountService {
     }
 
     public Optional<Account> getAccount(final Long id) {
-        //return repository.findById(id);
         return repository.findById(id);
     }
 
