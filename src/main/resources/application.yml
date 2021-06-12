@@ -6,13 +6,13 @@ spring:
   profiles:
     active: production
   datasource:
-    url: ${customer.datasource.url} #${accounts.datasource.url}
-    username: ${customer.datasource.username} #${accounts.datasource.username}
-    password: ${customer.datasource.password} #${accounts.datasource.password}
+    url: ${accounts.datasource.url}
+    username: ${accounts.datasource.username}
+    password: ${accounts.datasource.password}
     driver-class-name: com.mysql.cj.jdbc.Driver     # org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: ${customer.datasource.ddl-mode} #${accounts.datasource.ddl-mode}
+      ddl-auto: ${accounts.datasource.ddl-mode}
 management:
   endpoints:
     web:
@@ -28,5 +28,4 @@ info:
 eureka:
   client: ${eureka-client}
 application:
-  allow-get-customer: ${customer.allow-get-customer}
-#  allow-get-accounts: ${accounts.allow-get-accounts}
+  allow-get-accounts: ${accounts.allow-get-accounts}
