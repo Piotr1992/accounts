@@ -19,7 +19,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     @Override
     Optional<Account> findById(Long id);
 
-    List<AccountDto> findByIdDto(Long id);
+    List<AccountDto> findByIddto(Long id);
 
     void deleteById(Long id);
 

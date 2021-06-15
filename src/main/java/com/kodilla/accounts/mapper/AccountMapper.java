@@ -11,7 +11,7 @@ public class AccountMapper {
 
     public AccountDto mapToAccountDto(final Account account) {
         return new AccountDto(
-                account.getIdDto(),
+                account.getIddto(),
                 account.getNrb(),
                 account.getCurrency(),
                 account.getAvailableFunds()

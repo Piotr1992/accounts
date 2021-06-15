@@ -24,7 +24,7 @@ public class AccountService {
 
     public List<AccountDto> getAccountDto(final Long id) {
         //return repository.findById(id);
-        return repository.findByIdDto(id);
+        return repository.findByIddto(id);
     }
 
     public void save(Account account) {

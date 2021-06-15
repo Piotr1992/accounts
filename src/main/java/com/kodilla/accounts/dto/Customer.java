@@ -1,5 +1,6 @@
 package com.kodilla.accounts.dto;
 
+/*
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +13,11 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "customer")
+ */
+
 public class Customer {
 
-    @Id
+/*    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
@@ -23,6 +26,6 @@ public class Customer {
     private String firstName;
 
     @Column(name = "last_name")
-    private String lastName;
+    private String lastName;                */
 
 }

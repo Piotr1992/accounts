@@ -19,7 +19,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long idDto;
+    private long iddto;
 
     @Column(name = "nrb")
     private String nrb;

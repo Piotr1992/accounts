@@ -1,6 +1,6 @@
 package com.kodilla.accounts.controller;
 
-import com.kodilla.accounts.dto.CustomerDto;
+/*import com.kodilla.accounts.dto.CustomerDto;
 import com.kodilla.accounts.mapper.CustomerMapper;
 import com.kodilla.accounts.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -16,11 +16,11 @@ import org.springframework.web.server.ResponseStatusException;
 @RefreshScope
 @RestController
 @RequestMapping(value = "/v1/customers")
-@RequiredArgsConstructor
+@RequiredArgsConstructor                */
 
 public class CustomerController {
 
-    @Value("${application.allow-get-customer}")
+/*    @Value("${application.allow-get-customer}")
     private boolean allowGetCustomers;
     private final CustomerService customerService;
     private final CustomerMapper customerMapper;
@@ -40,6 +40,6 @@ public class CustomerController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addCustomer(@RequestBody CustomerDto customer) {
         customerService.save(customerMapper.mapToCustomer(customer));
-    }
+    }                   */
 
 }

@@ -1,5 +1,6 @@
 package com.kodilla.accounts.service;
 
+/*
 import com.kodilla.accounts.dto.Account;
 import com.kodilla.accounts.dto.AccountDto;
 import com.kodilla.accounts.dto.Customer;
@@ -12,9 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+ */
+
 public class CustomerService {
 
-    @Autowired
+/*    @Autowired
     private CustomerRepository repository;
 
     public List<Customer> getAllCustomers() {
@@ -23,6 +26,6 @@ public class CustomerService {
 
     public Optional<Customer> getCustomer(final Long id) { return repository.findById(id); }
 
-    public void save(Customer customer) { repository.save(customer); }
+    public void save(Customer customer) { repository.save(customer); }          */
 
 }
