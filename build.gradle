@@ -7,32 +7,34 @@ buildscript {
     }
     dependencies {
         classpath 'org.springframework.cloud:spring-cloud-contract-gradle-plugin:2.2.3.RELEASE'
+/*        classpath ("org.springframework.cloud:spring-cloud-contract-gradle-plugin:${springCloudVersion}")
+//        classpath "gradle.plugin.org.springframework.cloud:spring-cloud-contract-gradle-plugin:3.0.3"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springCloudVersion}"
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${verifier_version}"               */
     }
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.3.11.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+//    id 'spring-cloud-contract'
+    id 'maven-publish'
+//    id "org.springframework.cloud.contract" version "${springCloudVersion}"
 }
-
-apply plugin: 'spring-cloud-contract'
-apply plugin: 'maven-publish'
 
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
+//apply plugin: 'spring-cloud-contract'
+//apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
     mavenLocal()
 }
+
 
 ext {
     set('springCloudVersion', "Hoxton.SR5")
@@ -46,14 +48,18 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+//    implementation 'org.springframework.cloud.contract.verifier.plugin.ContractsCopyTask'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
     runtimeOnly 'mysql:mysql-connector-java'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-//    testCompileOnly: 'org.projectlombok:lombok:1.18.12'
+//    testCompileOnly: 'org.projectlombok:lombok'
 //    testAnnotationProcessor: 'org.projectlombok:lombok'
+
+//    testCompile('org.springframework.cloud:spring-cloud-contract-wiremock')
+//    testCompile('org.springframework.cloud:spring-cloud-starter-contract-verifier')
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -69,14 +75,26 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//        mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${springCloudVersion}"
     }
 }
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+/*contracts {
+    baseClassForTests = 'com.mimacom.shapeservice.BaseClass'
+}*/
+
+/*
 contracts {
     testFramework = TestFramework.JUNIT5
     packageWithBaseClasses = 'com.kodilla.accounts'
 }
-
+*/
 test {
     useJUnitPlatform()
 }
