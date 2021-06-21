@@ -1,3 +1,4 @@
+
 import org.springframework.cloud.contract.verifier.config.TestFramework
 
 buildscript {
@@ -27,7 +28,7 @@ group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-//apply plugin: 'spring-cloud-contract'
+apply plugin: 'spring-cloud-contract'
 //apply plugin: 'maven-publish'
 
 repositories {
@@ -37,7 +38,7 @@ repositories {
 
 
 ext {
-    set('springCloudVersion', "Hoxton.SR5")
+    set('springCloudVersion', "Hoxton.SR11")
 }
 
 dependencies {
@@ -51,6 +52,8 @@ dependencies {
 //    implementation 'org.springframework.cloud.contract.verifier.plugin.ContractsCopyTask'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
     implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    implementation 'junit:junit:4.13.1'
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     runtimeOnly 'mysql:mysql-connector-java'
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
@@ -70,6 +73,8 @@ dependencies {
     testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
     testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
     testImplementation 'com.h2database:h2:1.4.200'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
 }
 
 dependencyManagement {
@@ -89,12 +94,12 @@ configurations {
     baseClassForTests = 'com.mimacom.shapeservice.BaseClass'
 }*/
 
-/*
+
 contracts {
     testFramework = TestFramework.JUNIT5
     packageWithBaseClasses = 'com.kodilla.accounts'
 }
-*/
+
 test {
     useJUnitPlatform()
 }
