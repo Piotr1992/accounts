@@ -15,7 +15,9 @@ public class AccountMapper {
                 account.getIddto(),
                 account.getNrb(),
                 account.getCurrency(),
-                account.getAvailableFunds()
+                account.getAvailableFunds(),
+                account.getCustomerId()
+
         );
     }
 
@@ -26,7 +28,7 @@ public class AccountMapper {
     }
 
     public Account mapToAccount(AccountDto account) {
-        return new Account(account.getId(), account.getNrb(), account.getCurrency(), account.getAvailableFunds());
+        return new Account(account.getId(), account.getNrb(), account.getCurrency(), account.getAvailableFunds(), account.getCustomerId());
     }
 
 }

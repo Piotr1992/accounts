@@ -17,7 +17,9 @@ Contract.make {
                {
                   "id": 95213,
                   "nrb": "08897810189710581776778244",
-                  "currency": "PLN"
+                  "currency": "PLN",
+                  "availableFunds": 23.45,                      
+                  "customerId": 1L
                }
             ]
          }

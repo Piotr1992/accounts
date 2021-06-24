@@ -27,4 +27,7 @@ public class Account {
     @Column(name = "available_funds")
     private double availableFunds;
 
+    @Column(name = "customer_id")
+    private long customerId;
+
 }
