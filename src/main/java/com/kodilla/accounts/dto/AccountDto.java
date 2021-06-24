@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Setter
 public class AccountDto {
 
-    private Long id;
+    private long id;
     private String nrb;
     private String currency;
     private double availableFunds;

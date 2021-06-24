@@ -2,17 +2,17 @@ spring:
   application:
     name: accounts
   profiles:
-    active: production
-#    active: test
+#    active: production
+    active: test
   datasource:
-#    url: jdbc:h2:mem:testdb
-##    username: sa
-#    password: sa
-#    driver-class-name: org.h2.Driver
-    url: ${accounts.datasource.url}
-    username: ${accounts.datasource.username}
-    password: ${accounts.datasource.password}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+#    url: ${accounts.datasource.url}
+#    username: ${accounts.datasource.username}
+#    password: ${accounts.datasource.password}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: create-drop

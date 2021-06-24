@@ -1,6 +1,6 @@
 package com.kodilla.accounts;
 
-/*import com.kodilla.accounts.dto.Account;
+import com.kodilla.accounts.dto.Account;
 import com.kodilla.accounts.repository.AccountRepository;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Ignore;
@@ -18,10 +18,10 @@ import static org.mockito.Mockito.when;
 
 @Ignore
 @ExtendWith(SpringExtension.class)
-@SpringBootTest*/
+@SpringBootTest
 public class ContractVerifierBase {
 
-/*    @Autowired
+    @Autowired
     private WebApplicationContext context;
 
     @MockBean
@@ -30,16 +30,15 @@ public class ContractVerifierBase {
     @BeforeEach
     public void setUp() {
         RestAssuredMockMvc.webAppContextSetup(context);
-        when(repository.findById(1L)).thenReturn(
+/*        when(repository.findById(1L)).thenReturn(
                 Collections.singletonList(
                         Account.builder()
-                                .iddto(95213L)
+                                .iddto(1L)
                                 .nrb("08897810189710581776778244")
                                 .currency("PLN")
-                                //.customerId(1L)
+                                .availableFunds(234.56)
                                 .build()
                 )
-        );
-    }           */
-
+        );                      */
+    }
 }
