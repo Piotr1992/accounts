@@ -14,5 +14,5 @@ public class AccountDto {
     private String nrb;
     private String currency;
     private double availableFunds;
-    private Long customerId;
+    private Long idCustomer;
 }

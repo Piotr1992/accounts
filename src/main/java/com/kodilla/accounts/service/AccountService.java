@@ -27,7 +27,7 @@ public class AccountService {
         return repository.findByIddto(id);
     }
 
-    public List<Account> findByIdCustomer(final Long id) {
+    public List<Account> getAccountCustomer(final Long id) {
         return repository.findByIdCustomer(id);
     }
 

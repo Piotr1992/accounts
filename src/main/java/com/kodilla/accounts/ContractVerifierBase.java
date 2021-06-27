@@ -37,7 +37,7 @@ public class ContractVerifierBase {
                                 .iddto(95213L)
                                 .nrb("08897810189710581776778244")
                                 .currency("PLN")
-                                .customerId(1L)
+                                .idCustomer(1L)
                                 .build()
                 )
         );

@@ -11,19 +11,17 @@ Contract.make {
             header('Content-Type' : value(applicationJson()))
         }
         body(
-                """
-         {
-            "accounts": [
-               {
-                  "id": 95213,
-                  "nrb": "08897810189710581776778244",
-                  "currency": "PLN",
-                  "availableFunds": 23.45,                      
-                  "customerId": 1L
-               }
-            ]
-         }
-         """
+  """
+             {
+                "accounts": [
+                   {
+                      "id": 95213,
+                      "nrb": "08897810189710581776778244",
+                      "currency": "PLN"
+                   }
+                ]
+             }
+             """
         )
     }
 }

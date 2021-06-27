@@ -28,6 +28,6 @@ public class Account {
     private double availableFunds;
 
     @Column(name = "customer_id")
-    private long customerId;
+    private long idCustomer;
 
 }
