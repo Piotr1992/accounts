@@ -2,29 +2,28 @@ spring:
   application:
     name: accounts
   profiles:
-#    active: production
     active: test
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
-#    url: ${accounts.datasource.url}
-#    username: ${accounts.datasource.username}
-#    password: ${accounts.datasource.password}
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:mem:testdb # ${accounts.datasource.url}
+    username: sa # ${accounts.datasource.username}
+    password: sa # ${accounts.datasource.password}
+    driver-class-name: org.h2.Driver # com.mysql.cj.jdbc.Driver
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password: sa
+#    driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
-#      ddl-auto: ${accounts.datasource.ddl-mode}
-      database: h2
-#      database: ${accounts.datasource.database}
+      ddl-auto: create-drop # ${accounts.datasource.ddl-mode}
+      database: h2 # ${accounts.datasource.database}
       database-platform: org.hibernate.dialect.H2Dialect
+#      ddl-auto: create-drop
+#      database: h2
+#      database-platform: org.hibernate.dialect.H2Dialect
 
 eureka:
   client:
-    enabled: true
+    enabled: false
 
 application:
   allow-get-accounts: true
-#  allow-get-accounts: ${accounts.allow-get-accounts}

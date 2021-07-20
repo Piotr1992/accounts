@@ -2,7 +2,6 @@ package com.kodilla.accounts.mapper;
 
 import com.kodilla.accounts.dto.Account;
 import com.kodilla.accounts.dto.AccountDto;
-import lombok.Data;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;

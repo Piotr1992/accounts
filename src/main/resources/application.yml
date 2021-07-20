@@ -4,7 +4,7 @@ spring:
   application:
     name: accounts
   profiles:
-    active: production
+    active: test # production
   datasource:
     url: ${accounts.datasource.url}
     username: ${accounts.datasource.username}
@@ -12,7 +12,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver     # org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: ${accounts.datasource.ddl-mode}
+      ddl-auto: create-drop # ${accounts.datasource.ddl-mode}
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQL5Dialect
 management:
   endpoints:
     web:
@@ -31,6 +33,6 @@ eureka:
     serviceUrl:
       defaultZone=http://localhost:8761/eureka/:
 application:
-  allow-get-accounts: ${accounts.allow-get-accounts}
+  allow-get-accounts: true # ${accounts.allow-get-accounts}
 server:
   port: 9999

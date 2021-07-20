@@ -6,11 +6,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-//        classpath 'org.springframework.boot:spring-boot-test:2.3.0.RELEASE'
-//        classpath 'org.mockito:mockito-core:3.3.3'
-//        classpath 'org.springframework:spring-test:5.2.6.RELEASE'
         classpath 'org.springframework.cloud:spring-cloud-contract-gradle-plugin:2.2.3.RELEASE'
-//        classpath 'io.rest-assured:spring-mock-mvc:3.3.0'
     }
 }
 
@@ -42,23 +38,25 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.cloud:spring-cloud-starter'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
     implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
     implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     implementation 'org.mockito:mockito-core:3.3.3'
     implementation 'io.rest-assured:spring-mock-mvc:3.0.0'
     implementation 'org.springframework.boot:spring-boot-test:2.3.0.RELEASE'
-    runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'junit:junit:4.13.1'
+//    runtimeOnly 'mysql:mysql-connector-java'
+    compileOnly 'mysql:mysql-connector-java'
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-/*    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'      */
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -70,11 +68,6 @@ dependencies {
     testImplementation group: 'io.rest-assured', name: 'spring-mock-mvc', version: '3.0.0'
     implementation group: 'au.com.dius.pact.provider', name: 'junit5spring', version: '4.1.0'
     implementation group: 'com.sun.xml.bind', name: 'jaxb-osgi', version: '2.3.4'
-/*    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.10.19'
-
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
-    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.22.0'           */
 }
 
 dependencyManagement {
@@ -82,14 +75,6 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
-
-/*
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-*/
 
 contracts {
     testFramework = TestFramework.JUNIT5
