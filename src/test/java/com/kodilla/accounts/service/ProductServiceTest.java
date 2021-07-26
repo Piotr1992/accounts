@@ -22,18 +22,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductServiceTest {
 
     @Autowired
-//    private AccountService accountService;
-    private AccountRepository accountRepository;
+    private AccountService accountService;
+//    private AccountRepository accountRepository;
 
     @Test
     void findCustomerAccounts() {
         //Given
-        Long customerId = 3L;
+        Long customerId = 12L;
 
         //When
         //Optional<Account> accounts = accountRepository.findById(customerId);
-        List<AccountDto> accounts = accountRepository.findByIddto(customerId);
-        //List<Account> accounts = accountService.getAccountDto(customerId);
+//        List<AccountDto> accounts = accountRepository.findByIddto(customerId);
+//        List<AccountDto> accounts = accountService.getAccountDto(customerId);
+
+        List<Account> accounts = accountService.getAccountCustomer(customerId);
 
         //Optional<Account> accounts = accountService.getAccount(customerId);
 
@@ -41,18 +43,18 @@ class ProductServiceTest {
 
 
 
-        long id = 5;
+/*        long id = 5;
 
         for (AccountDto account1 : accounts)
         {
             id = account1.getId();
             //id = account1.getIddto();
-        }
+        }               */
 
         //Then
 //        assertTrue(accounts.isEmpty());
 //        assertEquals(1, accounts.size());
-        assertEquals(2L, id);
+        assertEquals(2, accounts.size());
 //        assertEquals(0.12, accounts.get().getAvailableFunds());
     }
 

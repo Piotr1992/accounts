@@ -3,7 +3,6 @@ package com.kodilla.accounts;
 import com.kodilla.accounts.dto.Account;
 import com.kodilla.accounts.repository.AccountRepository;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,8 +17,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
-//@Disabled
-@Ignore
+@Disabled
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class ContractVerifierBase {
@@ -33,13 +31,13 @@ public class ContractVerifierBase {
     @BeforeEach
     public void setUp() {
         RestAssuredMockMvc.webAppContextSetup(context);
-        when(repository.findByIdCustomer(1L)).thenReturn(
+        when(repository.findByIdCustomer(2L)).thenReturn(
                 Collections.singletonList(
                         Account.builder()
-                                .iddto(95213L)
+                                .iddto(2L)
                                 .nrb("08897810189710581776778244")
                                 .currency("PLN")
-                                .idCustomer(7L)
+                                .idCustomer(12L)
                                 .build()
                 )
         );

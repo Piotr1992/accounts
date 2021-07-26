@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 @RefreshScope
 @RestController
-@RequestMapping("/v1/accounts")
+@RequestMapping(value = "/v1/accounts", produces = {MediaType.APPLICATION_JSON_VALUE})
 @RequiredArgsConstructor
 public class AccountsController {
 
@@ -37,8 +37,8 @@ public class AccountsController {
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Getting accounts is disabled");
         }
 
-        List<AccountDto> accounts = accountMapper.mapToAccountDtoList(List.of(accountService.getAccount(customerId).orElse(new Account())));
-
+//        List<AccountDto> accounts = accountMapper.mapToAccountDtoList(List.of(accountService.getAccount(customerId).orElse(new Account())));
+        List<AccountDto> accounts = accountService.getAccountDto(customerId);
         return GetAccountsResponse.of(accounts);
     }
 
